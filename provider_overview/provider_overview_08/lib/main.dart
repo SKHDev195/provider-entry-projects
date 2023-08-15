@@ -1,0 +1,141 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'models/dog.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<Dog>(
+      create: (context) => Dog(
+        name: 'dog08',
+        breed: 'breed08',
+        age: 3,
+      ),
+      child: MaterialApp(
+        title: 'Provider 08',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          useMaterial3: true,
+        ),
+        home: const MyHomePage(),
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Provider 08'),
+      ),
+      body: Consumer<Dog>(
+        builder: (_, value, child) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                child!,
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  '- name: ${value.name}',
+                  style: const TextStyle(fontSize: 20),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const BreedAndAge(),
+              ],
+            ),
+          );
+        },
+        child: const Text(
+          'I like dogs',
+          style: TextStyle(
+            fontSize: 20,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BreedAndAge extends StatelessWidget {
+  const BreedAndAge({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<Dog>(
+      builder: (_, value, __) {
+        return Column(
+          children: [
+            Text(
+              '- breed: ${value.breed}',
+              style: const TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Age(),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class Age extends StatelessWidget {
+  const Age({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<Dog>(
+      builder: (_, value, __) {
+        return Column(
+          children: [
+            Text(
+              '- age: ${value.age}',
+              style: const TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () => value.grow(),
+              child: const Text(
+                'Grow',
+                style: TextStyle(fontSize: 20),
+              ),
+            )
+          ],
+        );
+      },
+    );
+  }
+}

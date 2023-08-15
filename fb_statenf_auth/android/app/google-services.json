@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "481127102779",
+    "project_id": "fb-statenf-auth-815",
+    "storage_bucket": "fb-statenf-auth-815.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481127102779:android:566ec4deda88c32d7f1f1e",
+        "android_client_info": {
+          "package_name": "com.example.fb_auth_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481127102779-tff8a3ase2v7rvv0pkb9k3hmn9enrgoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdMO-IifaFcgOfHP7G7FymBhbOROTqK2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481127102779-tff8a3ase2v7rvv0pkb9k3hmn9enrgoe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
